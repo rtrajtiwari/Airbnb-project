@@ -23,7 +23,9 @@
                     <!-- <li class="image"> 
                           <img src="<%= data.image.url %>" >
                     </li> -->
+                    <% if (data.price !== undefined && data.price !== null) { %>
                     <li >price : &#8377; <%= data.price.toLocaleString("en-IN") %> </li>
+                    <% } %>
                     <li> location : <%= data.location %> </li>
                     <li> country : <%= data.country %> </li>
                 
@@ -31,7 +33,7 @@
                 <br>
                 <div class="btns">
                     <a href="/listings/<%= data._id %>/edit" class="btn edit-btn">Edit</a>
-                    <form action="/listings/<%= data._id %>?_method=Delete" method="post" class="btn btn-dark">Delete</form>
+                    <form action="/listings/<%= data._id %>?_method=Delete" method="post" ><button type="submit" class="btn btn-dark">Delete</button></form>
                 </div>
                        
                     

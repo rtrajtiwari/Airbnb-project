@@ -5,36 +5,41 @@
                   <div class="row">
                     <div class="col-8 offset-2">
                         <h3>Create New</h3> <br>
-                  <form action="/listings" method="post">
+                  <form action="/listings" method="post" novalidate class="needs-validation">
                      <div>
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" name="listing[title]" placeholder="enter title" class="form-control"> <br>
+                        <input type="text" name="listing[title]" placeholder="enter title" class="form-control" required> <br>
+                        <div class="invalid-feedback">Enter  title</div>
                      </div>
                      <div>
                         <label for="description" class="form-label">Description</label>
-                         <textarea name="listing[description]" placeholder="description" class="form-control"></textarea> <br>
-                     </div>
+                         <textarea name="listing[description]" placeholder="description" class="form-control" required></textarea> <br>
+                         <div class="invalid-feedback">Enter  description</div>
+                        </div>
                      <div>
                         <label for="url" class="form-label">Url</label>
-                        <input type="text" name="listing[url]" placeholder="image url" class="form-control"> <br>
+                        <input type="text" name="listing[url]" placeholder="image url" class="form-control" required> <br>
                      </div>
                        
                      <div class="row">
                         <div class="col-md-4">
                             <label for="price" class="form-label">Price</label>
-                            <input type="number" name="listing[price]" placeholder="price" class="form-control"> <br>
-                        </div>
+                            <input type="number" name="listing[price]" placeholder="price" class="form-control" required> <br>
+                            <div class="invalid-feedback">Enter  price</div>
+                           </div>
                         <div class="col-md-8">
                             <label for="country" class="form-label">Country</label>
-                            <input type="text" name="listing[country]" placeholder="country" class="form-control"> <br> <br>
+                            <input type="text" name="listing[country]" placeholder="country" class="form-control" required> <br> <br>
+                            <div class="invalid-feedback">Enter  country</div>   
                         </div>
                      </div>
 
                     
                      <div>
                         <label for="location" class="form-label">Location</label>
-                        <input type="text" name="listing[location]" placeholder="location" class="form-control"> <br>
-                    </div>
+                        <input type="text" name="listing[location]" placeholder="location" class="form-control" required> <br>
+                        <div class="invalid-feedback">Enter location</div>
+                     </div>
                     
                       
 

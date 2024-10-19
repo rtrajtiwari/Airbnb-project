@@ -12,7 +12,9 @@
                             <div class="card-img-overlay"></div>
                             <div class="card-body">
                                 <b><p class="card-title"> <%= data.title %></p> </b>
+                                <% if (data.price !== undefined && data.price !== null) { %>
                                 <p class="card-price"> &#8377; <%= data.price.toLocaleString("en-IN") %> /night</p>
+                                <% } %>
                             </div>
                         </div>
                        </a>
