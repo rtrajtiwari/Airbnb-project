@@ -8,7 +8,7 @@
 
                     
                 <h3>listing details :</h3> 
-                <div class="card" >
+                <div class="card listing-card" >
                     <img class="card-img-top show-img" src="<%= data.image.url %>" alt="Card image cap">
                     <div class="card-body">
                       <p class="card-text"> <%= data.title %> </p>
@@ -34,6 +34,38 @@
                 <div class="btns">
                     <a href="/listings/<%= data._id %>/edit" class="btn edit-btn">Edit</a>
                     <form action="/listings/<%= data._id %>?_method=Delete" method="post" ><button type="submit" class="btn btn-dark">Delete</button></form>
+                </div>
+                 <hr>
+                <div class="col-8 offset-2 mt-4">
+                       <h4>Write a review</h4>
+                           <form action="/listings/<%= data._id %>/review" method="post" novalidate class="needs-validation">
+                                   <div>
+                                    <label for="rating" class="form-label">Rating</label>
+                                    <input type="range" name="review[rating]" min="1" max="5" class="form-control form-range" >             
+                                   </div>
+
+                                   <div>
+                                      <label for="comment" class="form-label">Comment</label>
+                                      <textarea name="review[comment]" placeholder="write a comment" class="form-control" required ></textarea>   
+                                      <div class="invalid-feedback ">enter valid review</div>        
+                                   </div>
+                                   <button class="offset-5">Submit</button>
+
+                           </form>
+
+                           <h5>All reviews</h5>
+
+                            <% for(review of data.reviews){  %>
+                            <div class="card ">
+                              <div class="card-body">
+                                <h5 class="card-title">sherlock</h5>
+                                <p class="card-text"><%= review.comment %></p>
+                                <p class="card-text"><%= review.rating %></p>
+                                <form action="/listings/<%= data._id %>/review/<%= review._id %>?_method=Delete" method="post"><button class="btn btn-dark">Delete</button></form>
+
+                              </div>
+                            </div>
+                            <% } %>
                 </div>
                        
                     
