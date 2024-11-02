@@ -11,7 +11,7 @@
                 <div class="card listing-card" >
                     <img class="card-img-top show-img" src="<%= data.image.url %>" alt="Card image cap">
                     <div class="card-body">
-                      <p class="card-text"> <%= data.title %> </p>
+                      <p class="card-text"> Own by : <%= data.owner.username %> </p>
                     </div>
                   </div>
                 </div>
@@ -31,10 +31,13 @@
                 
               <ul> 
                 <br>
-                <div class="btns">
+
+                <% if(currentuser && data.owner && currentuser._id.equals(data.owner._id)){ %>
+                  <div class="btns">
                     <a href="/listings/<%= data._id %>/edit" class="btn edit-btn">Edit</a>
                     <form action="/listings/<%= data._id %>?_method=Delete" method="post" ><button type="submit" class="btn btn-dark">Delete</button></form>
-                </div>
+                  </div>
+                  <% } %>
                  <hr>
                 <div class="col-8 offset-2 mt-4">
                        <h4>Write a review</h4>
@@ -58,7 +61,7 @@
                             <% for(review of data.reviews){  %>
                             <div class="card ">
                               <div class="card-body">
-                                <h5 class="card-title">sherlock</h5>
+                                <h5 class="card-title">@<%= review.author.username %></h5>
                                 <p class="card-text"><%= review.comment %></p>
                                 <p class="card-text"><%= review.rating %></p>
                                 <form action="/listings/<%= data._id %>/review/<%= review._id %>?_method=Delete" method="post"><button class="btn btn-dark">Delete</button></form>
