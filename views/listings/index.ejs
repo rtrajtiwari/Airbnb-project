@@ -1,0 +1,29 @@
+
+   <% layout("/layouts/boilerplate") %>
+
+<body>       
+               All listings  <br><br>
+
+               <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+                    <%for(data of dbdata){ %> 
+                      <a href="/listings/<%= data._id %>" class="u-card">
+                        <div class="card listing-card">
+                            <img class="card-img-top" src="<%= data.image.url %>" alt="Card image cap"  style="height:18rem;">
+                            <div class="card-img-overlay"></div>
+                            <div class="card-body">
+                                <b><p class="card-title"> <%= data.title %></p> </b>
+                                <% if (data.price !== undefined && data.price !== null) { %>
+                                <p class="card-price"> &#8377; <%= data.price.toLocaleString("en-IN") %> /night</p>
+                                <% } %>
+                            </div>
+                        </div>
+                       </a>
+                    <% } %>
+               </div>
+                
+             
+                    
+             
+
+</body>
+<!-- </html> -->
