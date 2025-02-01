@@ -11,7 +11,7 @@
                 <div class="card listing-card" >
                     <img class="card-img-top show-img" src="<%= data.image.url %>" alt="Card image cap">
                     <div class="card-body">
-                      <p class="card-text"> Own by : <%= data.owner.username %> </p>
+                      <p class="card-text"> Own by : <%= data.owner ? data.owner.username : 'Akash' %>  </p>
                     </div>
                   </div>
                 </div>

@@ -69,7 +69,7 @@ app.get("/demo", async(req,res)=>{
 }) 
 
 app.get("/",(req,res)=>{
-    res.send("working");
+    res.redirect("/listings");
 });
 
 
