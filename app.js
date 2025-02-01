@@ -40,7 +40,7 @@ app.use(session({
 // mongoose
 console.log(process.env.MONGODB_URI);
 async function main() {
-    await mongoose.connect(`{process.env.MONGODB_URI}`)
+  await mongoose.connect(`${process.env.MONGODB_URI}`);
 }
 main()
 .then(()=>{
