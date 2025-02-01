@@ -97,3 +97,25 @@ html, body {
     justify-content: center !important;
     gap: 15px !important;
 }
+
+/* pagination */
+.pagination{
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    
+
+}
+.pagination a{
+    text-decoration: none ;
+    margin-left: 1rem;
+}
+.pagination a:hover{
+    text-decoration: underline; 
+}
+
+.map-container{
+    display: flex  !important;
+    justify-content: center !important;
+    align-items: center !important;
+}

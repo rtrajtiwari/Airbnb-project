@@ -38,7 +38,24 @@
                     <form action="/listings/<%= data._id %>?_method=Delete" method="post" ><button type="submit" class="btn btn-dark">Delete</button></form>
                   </div>
                   <% } %>
+
+                  <br><br><br>
+                <div class="map-container">
+                  <div id="map-container" style="width: 600px; height: 450px;">
+                    <!-- dynamically importing the iframe into it  -->
+                  </div>
+                </div>
+              
+
+                
+                  
+                  
+
+
+
                  <hr>
+                    
+        <!-- reviews -->          
                 <div class="col-8 offset-2 mt-4">
                        <h4>Write a review</h4>
                            <form action="/listings/<%= data._id %>/review" method="post" novalidate class="needs-validation">
@@ -55,7 +72,7 @@
                                    <button class="offset-5">Submit</button>
 
                            </form>
-
+   
                            <h5>All reviews</h5>
 
                             <% for(review of data.reviews){  %>
@@ -70,7 +87,22 @@
                             </div>
                             <% } %>
                 </div>
-                       
-                    
+                  
+                <script src="/js/map.js"></script>
+                
+               <!-- <script>
+                 const city = "<%= data.location %>";
+                   console.log(city);
+                 // Calling the function to fetch the bounding box and display the map
+                    getBoundingBox(city);
+               </script>      -->
+               <script>
+                const city = "<%= data.location %>";
+                // Calling the function to fetch the bounding box and display the map with marker
+                getBoundingBox(city);
+                 </script>
+               
+               
 
 </body>
+

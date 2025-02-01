@@ -69,6 +69,21 @@ app.get("/",(req,res)=>{
     res.send("working");
 });
 
+
+// map
+
+async function getBoundingBox(city) {
+    const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${city}&format=json`);
+    const data = await response.json();
+  
+    if (data.length > 0) {
+      const [minLon, maxLat, maxLon, minLat] = data[0].boundingbox;
+      return { minLon, maxLat, maxLon, minLat };
+    } else {
+      throw new Error("City not found");
+    }
+  }
+
 app.use((req,res,next)=>{
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
