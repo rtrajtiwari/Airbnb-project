@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -13,6 +14,7 @@ const flash = require("connect-flash");
 const passport = require('passport');
 const passportlocal = require("passport-local");
 const User = require("./models/users.js");
+
 
 
 app.set("view engine","ejs");
@@ -36,8 +38,9 @@ app.use(session({
 
 
 // mongoose
+console.log(process.env.MONGODB_URI);
 async function main() {
-    await mongoose.connect("mongodb://localhost:27017/wanderlust")
+    await mongoose.connect(`{process.env.MONGODB_URI}`)
 }
 main()
 .then(()=>{
