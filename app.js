@@ -58,8 +58,8 @@ passport.deserializeUser(User.deserializeUser());
 
 app.get("/demo", async(req,res)=>{
         let demouser = {
-            email : "akashbarwar@gmail.com",
-            username : "Akash Barwar"
+            email : "rajtiwari99939@gmail.com",
+            username : "Raj"
         }
      let newuser =   await User.register(demouser,"pikachu");
      res.send(newuser);
