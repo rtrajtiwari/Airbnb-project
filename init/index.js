@@ -3,7 +3,7 @@ const  mongoose = require("mongoose");
 const initdata = require("./data.js");
 const Listing = require("../models/listings.js");
 
-
+console.log(process.env.MONGODB_URI);
 async function main() {
     await mongoose.connect(`${process.env.MONGODB_URI}`);
 }
