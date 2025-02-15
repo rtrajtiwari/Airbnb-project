@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -36,8 +37,13 @@ app.use(session({
 
 
 // mongoose
+// async function main() {
+//     await mongoose.connect("mongodb://localhost:27017/wanderlust")
+// }
+// mongoose
+console.log(process.env.MONGODB_URI);
 async function main() {
-    await mongoose.connect("mongodb://localhost:27017/wanderlust")
+  await mongoose.connect(`${process.env.MONGODB_URI}`);
 }
 main()
 .then(()=>{

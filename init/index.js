@@ -1,10 +1,11 @@
+require('dotenv').config({ path: '../.env' });
 const  mongoose = require("mongoose");
 const initdata = require("./data.js");
 const Listing = require("../models/listings.js");
 
 
 async function main() {
-    await mongoose.connect("mongodb://localhost:27017/wanderlust")
+    await mongoose.connect(`${process.env.MONGODB_URI}`);
 }
 main()
 .then(()=>{
