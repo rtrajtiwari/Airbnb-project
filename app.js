@@ -16,6 +16,7 @@ const passportlocal = require("passport-local");
 const User = require("./models/users.js");
 
 
+
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 
@@ -36,10 +37,6 @@ app.use(session({
   }));
 
 
-// mongoose
-// async function main() {
-//     await mongoose.connect("mongodb://localhost:27017/wanderlust")
-// }
 // mongoose
 console.log(process.env.MONGODB_URI);
 async function main() {
@@ -64,8 +61,8 @@ passport.deserializeUser(User.deserializeUser());
 
 app.get("/demo", async(req,res)=>{
         let demouser = {
-            email : "rajtiwari99939@gmail.com",
-            username : "Raj"
+            email : "akashbarwar@gmail.com",
+            username : "Akash Barwar"
         }
      let newuser =   await User.register(demouser,"pikachu");
      res.send(newuser);
@@ -74,6 +71,21 @@ app.get("/demo", async(req,res)=>{
 app.get("/",(req,res)=>{
     res.redirect("/listings");
 });
+
+
+// map
+
+async function getBoundingBox(city) {
+    const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${city}&format=json`);
+    const data = await response.json();
+  
+    if (data.length > 0) {
+      const [minLon, maxLat, maxLon, minLat] = data[0].boundingbox;
+      return { minLon, maxLat, maxLon, minLat };
+    } else {
+      throw new Error("City not found");
+    }
+  }
 
 app.use((req,res,next)=>{
     res.locals.success = req.flash("success");

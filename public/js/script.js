@@ -17,4 +17,8 @@
           form.classList.add('was-validated')
         }, false)
       })
+<<<<<<< HEAD
   })()
+=======
+  })()
+>>>>>>> upstream/main

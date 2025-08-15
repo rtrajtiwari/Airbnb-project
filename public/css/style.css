@@ -4,6 +4,7 @@
 html, body {
     height: 100%;          
     margin: 0;  
+<<<<<<< HEAD
     font-family: "Plus Jakarta Sans", serif !important;    
     display: flex;
     flex-direction: column;
@@ -12,6 +13,21 @@ html, body {
 }
 .container{
     flex: 1;
+=======
+    /* padding: 0; */
+    font-family: "Plus Jakarta Sans", serif !important;    
+    /* display: flex;
+    flex-direction: column; */
+    /* min-height: 100vh;    */
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+   flex: 1;
+>>>>>>> upstream/main
 }
 
 .navbar{
@@ -97,3 +113,39 @@ html, body {
     justify-content: center !important;
     gap: 15px !important;
 }
+<<<<<<< HEAD
+=======
+
+/* pagination */
+.pagination{
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    
+
+}
+.pagination a{
+    text-decoration: none ;
+    margin-left: 1rem;
+}
+.pagination a:hover{
+    text-decoration: underline; 
+}
+
+.map-container{
+    display: flex  !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.foot{
+    background-color: #F8F9FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    bottom: 0;
+    position: relative;
+}
+>>>>>>> upstream/main

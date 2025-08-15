@@ -18,7 +18,12 @@ const validatelisting = (req,res,next)=>{
 // index route
 router.get("/", async (req, res, next) => {
     try {
-        const dbdata = await Listing.find({});
+          const page = Number(req.query.page) || 1;
+          const limit = Number(req.query.limit) || 15;
+
+          const skip = (page - 1)* limit;
+
+        const dbdata = await Listing.find({}).skip(skip).limit(limit);
         res.render("listings/index.ejs", { dbdata });
     } catch (err) {
         next(err);  

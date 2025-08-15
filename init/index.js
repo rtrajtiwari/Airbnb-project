@@ -1,13 +1,14 @@
 require('dotenv').config({ path: '../.env' });
+console.log("MONGODB_URI:", process.env.MONGODB_URI);
 const  mongoose = require("mongoose");
 const initdata = require("./data.js");
 const Listing = require("../models/listings.js");
 
-console.log(process.env.MONGODB_URI);
+
 async function main() {
     await mongoose.connect(`${process.env.MONGODB_URI}`);
 }
-main()
+main()  
 .then(()=>{
     console.log("connected to db");
 })

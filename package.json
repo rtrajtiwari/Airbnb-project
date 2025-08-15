@@ -1,4 +1,15 @@
 {
+  "name": "major-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.7",
@@ -17,4 +28,3 @@
     "passport-local-mongoose": "^8.0.0"
   }
 }
-
